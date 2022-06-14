@@ -13,27 +13,6 @@ const App: React.FC = () => (
       </Menu>
 
       <Button autoFocus>Hello</Button>
-      <Button disabled>Hello</Button>
-      <Button
-        className="custom"
-        btnType={ButtonType.Primary}
-        size={ButtonSize.Large}
-        onClick={e => {
-          e.preventDefault();
-        }}
-      >
-        Large
-      </Button>
-      <Button btnType={ButtonType.Danger}>Hello</Button>
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Small}>
-        Small
-      </Button>
-      <Button btnType={ButtonType.Link} href="https://www.google.com">
-        Google Link
-      </Button>
-      <Button btnType={ButtonType.Link} href="https://www.google.com" disabled>
-        Google Link Disabled
-      </Button>
     </header>
   </div>
 );
