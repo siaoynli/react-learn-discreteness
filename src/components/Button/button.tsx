@@ -1,19 +1,10 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-export enum ButtonSize {
-  Large = 'lg',
-  Small = 'sm',
-  Default = '',
-}
+export type ButtonSize = 'lg' | 'sm' | '';
 
-export enum ButtonType {
-  Primary = 'primary',
-  Default = 'default',
-  Danger = 'danger',
-  Link = 'link',
-}
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
 interface BaseButtonProps {
   className?: string;
@@ -36,13 +27,13 @@ const Button: React.FC<ButtonProps> = props => {
   const { className, disabled, size, btnType, children, href, ...restProps } =
     props;
 
-  const classes = classnames('btn', className, {
+  const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    disabled: btnType === ButtonType.Link && disabled,
+    disabled: btnType === 'primary' && disabled,
   });
 
-  if (btnType === ButtonType.Link && href) {
+  if (btnType === 'link' && href) {
     return (
       <a className={classes} href={href} {...restProps}>
         {children}
@@ -59,24 +50,15 @@ const Button: React.FC<ButtonProps> = props => {
 Button.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string,
-  size: PropTypes.oneOf([
-    ButtonSize.Large,
-    ButtonSize.Small,
-    ButtonSize.Default,
-  ]),
+  size: PropTypes.oneOf(['lg', 'sm', '']),
   disabled: PropTypes.bool,
-  btnType: PropTypes.oneOf([
-    ButtonType.Primary,
-    ButtonType.Default,
-    ButtonType.Danger,
-    ButtonType.Link,
-  ]),
+  btnType: PropTypes.oneOf(['primary', 'default', 'danger', 'link']),
 };
 
 Button.defaultProps = {
   disabled: false,
-  btnType: ButtonType.Default,
-  size: ButtonSize.Default,
+  btnType: 'default',
+  size: '',
   className: '',
   href: '',
 };

@@ -1,12 +1,19 @@
 import React from 'react';
 import Button, { ButtonType, ButtonSize } from './components/Button/button';
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem';
 
 const App: React.FC = () => (
   <div className="App">
     <header className="App-header">
+      <Menu defaultIndex={0}>
+        <MenuItem>标题1</MenuItem>
+        <MenuItem>标题2</MenuItem>
+        <MenuItem disabled>标题3</MenuItem>
+      </Menu>
+
       <Button autoFocus>Hello</Button>
       <Button disabled>Hello</Button>
-
       <Button
         className="custom"
         btnType={ButtonType.Primary}
@@ -27,20 +34,6 @@ const App: React.FC = () => (
       <Button btnType={ButtonType.Link} href="https://www.google.com" disabled>
         Google Link Disabled
       </Button>
-      <p>
-        Edit
-        <code>src/App.tsx</code>
-        and save to reload.
-      </p>
-      <h1>hello world!</h1>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
     </header>
   </div>
 );
