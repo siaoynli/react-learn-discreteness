@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 export enum ButtonSize {
   Large = 'lg',
   Small = 'sm',
+  Default = '',
 }
 
 export enum ButtonType {
@@ -56,9 +57,13 @@ const Button: React.FC<ButtonProps> = props => {
 };
 
 Button.propTypes = {
-  className: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  size: PropTypes.oneOf([ButtonSize.Large, ButtonSize.Small]).isRequired,
+  className: PropTypes.string,
+  href: PropTypes.string,
+  size: PropTypes.oneOf([
+    ButtonSize.Large,
+    ButtonSize.Small,
+    ButtonSize.Default,
+  ]),
   disabled: PropTypes.bool,
   btnType: PropTypes.oneOf([
     ButtonType.Primary,
@@ -71,6 +76,9 @@ Button.propTypes = {
 Button.defaultProps = {
   disabled: false,
   btnType: ButtonType.Default,
+  size: ButtonSize.Default,
+  className: '',
+  href: '',
 };
 
 export default Button;
