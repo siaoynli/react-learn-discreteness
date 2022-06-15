@@ -9,7 +9,7 @@ export interface MenuProps {
   className?: string;
   mode?: MenuModel;
   style?: React.CSSProperties;
-  onSelect?: (selectedIndex: number) => void | undefined;
+  onSelect?: (selectedIndex: number) => void;
 }
 
 const Menu: React.FC<MenuProps> = props => {
