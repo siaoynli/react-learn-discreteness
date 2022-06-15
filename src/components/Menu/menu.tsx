@@ -13,6 +13,8 @@ export interface MenuProps {
 }
 
 const Menu: React.FC<MenuProps> = props => {
+  const demo = ['lee', 'han'];
+
   const { defaultIndex, className, mode, style, children } = props;
   const classes = classNames('viking-menu', className, {
     'menu-horizontal': mode === 'horizontal',
