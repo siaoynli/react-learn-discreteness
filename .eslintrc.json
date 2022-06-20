@@ -111,6 +111,7 @@
     "no-shadow": 0, //消除阴影变量声明
     "no-unused-vars": 1, //不能有声明后未被使用的变量或参数
     "react/jsx-props-no-spreading": 0, //props允许解构
-    "react/default-props-match-prop-types": 1 //强制所有 defaultProps 有一个对应的非必需 PropType
+    "react/default-props-match-prop-types": 1,
+    "jsx-a11y/click-events-have-key-events": 0 //强制所有 defaultProps 有一个对应的非必需 PropType
   }
 }

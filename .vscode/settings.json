@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["browserslist", "camelcase", "cond", "linebreak", "parens"]
+  "cSpell.words": [
+    "browserslist",
+    "camelcase",
+    "cond",
+    "linebreak",
+    "parens",
+    "testid"
+  ]
 }
