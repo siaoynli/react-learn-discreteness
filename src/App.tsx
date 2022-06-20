@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
+import SubMenu from './components/Menu/subMenu';
 
 const App: React.FC = () => (
   <div className="App">
@@ -12,15 +12,16 @@ const App: React.FC = () => (
           // eslint-disable-next-line no-alert
           alert(index);
         }}
+        mode="horizontal"
       >
-        <MenuItem index={0}>标题1</MenuItem>
-        <MenuItem index={1}>标题2</MenuItem>
-        <MenuItem index={2} disabled>
-          标题3
-        </MenuItem>
+        <MenuItem>标题1</MenuItem>
+        <MenuItem>标题2</MenuItem>
+        <SubMenu title="下拉菜单">
+          <MenuItem>下拉1</MenuItem>
+          <MenuItem>下拉2</MenuItem>
+        </SubMenu>
+        <MenuItem disabled>标题3</MenuItem>
       </Menu>
-
-      <Button autoFocus>Hello</Button>
     </header>
   </div>
 );
