@@ -18,6 +18,7 @@ export interface MenuProps {
 interface IMenuContext {
   index: number;
   onSelect?: SelectCallback;
+  mode?: MenuModel;
 }
 
 export const MenuContext = createContext<IMenuContext>({ index: 0 });
@@ -41,6 +42,7 @@ const Menu: React.FC<MenuProps> = props => {
   const passedContext: IMenuContext = {
     index: currentIndex || 0,
     onSelect: handleClick,
+    mode,
   };
 
   // eslint-disable-next-line arrow-body-style

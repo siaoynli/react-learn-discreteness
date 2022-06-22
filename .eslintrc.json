@@ -23,6 +23,7 @@
   },
   "rules": {
     "comma-dangle": 0,
+    "indent": 0,
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [
       1,
@@ -36,7 +37,7 @@
     "object-curly-newline": ["error", { "consistent": true }],
     "no-console": 0, //不禁用console
     "no-debugger": 2, //禁用debugger
-    "no-var": 1, //对var警告
+    "no-var": 1, //禁用var
     "semi": 0, //不强制使用分号
     "no-irregular-whitespace": 0, //不规则的空白不允许
     "no-trailing-spaces": 1, //一行结束后面有空格就发出警告
@@ -104,14 +105,15 @@
     "react/function-component-definition": [
       2,
       { "namedComponents": "arrow-function" }
-    ],
-    "react/no-unused-prop-types": 1,
-    "operator-linebreak": ["error", "after"],
-    "import/no-unresolved": 2,
+    ], //强制组件定义为函数
+    "react/no-unused-prop-types": 1, //防止在React组件定义中丢失propTypes
+    "operator-linebreak": 0, //换行时运算符在行尾还是行首
+    "import/no-unresolved": 2, //防止未能解决的模块
     "no-shadow": 0, //消除阴影变量声明
     "no-unused-vars": 1, //不能有声明后未被使用的变量或参数
     "react/jsx-props-no-spreading": 0, //props允许解构
-    "react/default-props-match-prop-types": 1,
-    "jsx-a11y/click-events-have-key-events": 0 //强制所有 defaultProps 有一个对应的非必需 PropType
+    "react/default-props-match-prop-types": 1, //强制所有 defaultProps 有一个对应的非必需 PropType
+    "jsx-a11y/click-events-have-key-events": 0, //防止点击事件无法被识别
+    "jsx-a11y/no-static-element-interactions": 0 //防止使用静态元素的交互
   }
 }
