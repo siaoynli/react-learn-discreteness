@@ -6,5 +6,6 @@
     "linebreak",
     "parens",
     "testid"
-  ]
+  ],
+  "commentTranslate.targetLanguage": "zh-CN"
 }
