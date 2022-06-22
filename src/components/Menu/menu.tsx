@@ -13,18 +13,28 @@ export interface MenuProps {
   mode?: MenuModel;
   style?: React.CSSProperties;
   onSelect?: SelectCallback;
+  defaultOpenSubMenus?: string[];
 }
 
 interface IMenuContext {
   index: string;
   onSelect?: SelectCallback;
   mode?: MenuModel;
+  defaultOpenSubMenus?: string[];
 }
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' });
 
 const Menu: React.FC<MenuProps> = props => {
-  const { defaultIndex, className, mode, style, children, onSelect } = props;
+  const {
+    defaultIndex,
+    className,
+    mode,
+    style,
+    children,
+    onSelect,
+    defaultOpenSubMenus,
+  } = props;
   const [currentIndex, setIndex] = useState(defaultIndex);
   const classes = classNames('viking-menu', className, {
     'menu-horizontal': mode === 'horizontal',
@@ -43,6 +53,7 @@ const Menu: React.FC<MenuProps> = props => {
     index: currentIndex || '0',
     onSelect: handleClick,
     mode,
+    defaultOpenSubMenus,
   };
 
   // eslint-disable-next-line arrow-body-style
@@ -77,6 +88,7 @@ Menu.defaultProps = {
   style: {},
   onSelect: () => {},
   children: null,
+  defaultOpenSubMenus: [],
 };
 
 export default Menu;

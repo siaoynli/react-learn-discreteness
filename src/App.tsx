@@ -12,7 +12,8 @@ const App: React.FC = () => (
           // eslint-disable-next-line no-alert
           alert(index);
         }}
-        mode="horizontal"
+        mode="vertical"
+        defaultOpenSubMenus={['2']}
       >
         <MenuItem>标题1</MenuItem>
         <MenuItem>标题2</MenuItem>
