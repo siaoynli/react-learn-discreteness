@@ -7,8 +7,8 @@ const App: React.FC = () => (
   <div className="App">
     <header className="App-header">
       <Menu
-        defaultIndex={0}
-        onSelect={(index: number) => {
+        defaultIndex="0"
+        onSelect={index => {
           // eslint-disable-next-line no-alert
           alert(index);
         }}

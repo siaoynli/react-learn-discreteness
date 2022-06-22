@@ -4,7 +4,7 @@ import { MenuContext } from './menu';
 import { MenuItemProps } from './menuItem';
 
 export interface SubMenuProps {
-  index?: number;
+  index?: string;
   title: string;
   className?: string;
   children?: React.ReactNode;
@@ -48,12 +48,15 @@ const SubMenu: React.FC<SubMenuProps> = props => {
       'menu-opened': menuOpen,
     });
     // eslint-disable-next-line consistent-return
-    const childrenComponent = React.Children.map(children, (child, index) => {
+    const childrenComponent = React.Children.map(children, (child, _index) => {
       const childElement =
         child as React.FunctionComponentElement<MenuItemProps>;
       const { displayName } = childElement.type;
       if (displayName === 'MenuItem') {
-        return childElement;
+        // 防止子菜单的index重复
+        return React.cloneElement(childElement, {
+          index: `${index}-${_index}`,
+        });
       }
       console.warn(
         'Warning: Menu has a child which is not a MenuItem Component'
@@ -74,7 +77,7 @@ const SubMenu: React.FC<SubMenuProps> = props => {
 
 SubMenu.displayName = 'SubMenu';
 SubMenu.defaultProps = {
-  index: 0,
+  index: '0',
   className: '',
   children: null,
 };
